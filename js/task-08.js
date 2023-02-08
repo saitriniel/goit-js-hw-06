@@ -9,12 +9,12 @@ refs.form.addEventListener('submit', onFormSubmit)
 function onFormSubmit(event) {
     event.preventDefault();
 
-    const formEmailEl = event.currentTarget.elements.email;
-    const formPasswordEl = event.currentTarget.elements.password;
+    const formEmailEl = event.currentTarget.email.value.trim();
+    const formPasswordEl = event.currentTarget.password.value;
 
-   if(formEmailEl.value === "" || formPasswordEl.value === "") {
+   if(formEmailEl === "" || formPasswordEl === "") {
     alert('Всі поля повинні бути заповнені! :(')
-   } else {const formData = {email: formEmailEl.value, password: formPasswordEl.value};
+   } else {const formData = {email: formEmailEl, password: formPasswordEl};
    console.log(formData);
    event.currentTarget.reset();
     } 

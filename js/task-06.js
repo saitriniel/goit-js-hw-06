@@ -2,14 +2,16 @@ const inputEl = document.querySelector('input');
 
 inputEl.addEventListener('blur', onInputBlur);
 
+function changeClass (remove, add) {
+    inputEl.classList.remove(remove);
+    inputEl.classList.add(add);
+}
+
 function onInputBlur() {
-    if (inputEl.value.length <= inputEl.dataset.length) {
-        inputEl.classList.remove('invalid');
-        inputEl.classList.add('valid');
+    if (inputEl.value.length <= Number(inputEl.dataset.length)) {
+        changeClass ('invalid', 'valid');
     } 
     else 
-    {   inputEl.classList.remove('valid');
-        inputEl.classList.add('invalid');
-    }
+    {   changeClass ('valid', 'invalid'); }
 }
 
